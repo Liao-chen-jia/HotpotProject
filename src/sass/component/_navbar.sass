@@ -1,0 +1,72 @@
+.c-navbar
+  width: 100%
+  background-color: var(--color-primary)
+  display: flex
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 999
+  &__logo-mask
+    display: none
+    max-width: 10rem
+  &__burger
+    display: none
+  &__list
+    display: flex
+    align-items: center
+  &__item
+    font-size: 2rem
+    margin: 0 var(--space-50)
+    &.--img
+      max-width: 10rem
+  &__btn
+    border: 2px solid transparent
+    color: var(--color-secondary)
+    transition: border 0.5s ease-out
+    padding: var(--space-10)
+    &:hover 
+      font-weight: 800
+
+  +media(xl)
+    justify-content: space-between
+    padding: 0 var(--space-50)
+    &__logo-mask
+      display: block
+    &__burger
+      display: block
+    &__list
+      display: block
+      flex-direction: column
+      align-items: flex-start
+      position: absolute
+      width: 100%
+      max-height: 0
+      left: 0
+      top: 100%
+      background-color: var(--color-primary)
+      overflow: hidden
+      transition: max-height 1s 0.5s
+    &__btn
+      opacity: 0
+      transition: opacity 0.5s
+    &__item
+      &.--img
+        display: none
+    &__burger-ctrl:checked ~ &
+      &__list
+        max-height: 40rem
+        transition: max-height 1s
+    &__burger-ctrl:checked ~ &__list &
+      &__btn
+        opacity: 1
+        transition: opacity 0.5s 1s
+      
+
+        
+      
+
+
+  
+    

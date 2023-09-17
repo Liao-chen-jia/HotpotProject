@@ -1,0 +1,51 @@
+.c-footer
+  height: 15rem
+  background-color: var(--color-primary)
+  display: flex
+  flex-direction: column
+  align-items: center
+  position: relative
+  &__img-mask
+    +size(20rem, 100%)
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    top: 0
+    left: 15vw
+    +media(xxl)
+      left: 10vw
+    +media(xl)
+      display: none
+  &__icon-wrap
+    display: flex
+    justify-content: space-between
+    font-size: 3rem
+    padding: 3rem 0 1rem
+    width: 10rem
+  &__icon
+    transition: color 0.5s
+    &:hover
+      color: var(--color-secondary60)
+  &__information
+    display: flex
+    align-items: center
+  &__time
+    display: flex
+    justify-content: center
+    align-items: center
+    padding-right: 2rem
+  &__address
+    display: flex
+    justify-content: center
+    align-items: center
+    transition: color 0.5s
+    &:hover
+      color: var(--color-secondary60)
+  &__phone
+    display: flex
+    justify-content: center
+    align-items: center
+    padding-left: 2rem
+  span
+    margin-left: 0.5rem

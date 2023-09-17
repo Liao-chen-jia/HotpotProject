@@ -1,0 +1,22 @@
+.l-about
+  margin-top: 20rem
+  &__wrap
+    display: flex
+    justify-content: center
+    align-items: center
+    padding-bottom: 10rem
+  &__box
+    display: flex
+  +media(xl)
+    &__wrap
+      flex-direction: column
+      padding-bottom: 5rem
+    &__box:first-child
+      margin-bottom: var(--space-50)
+  +media(sm)
+    &__box
+      flex-direction: column
+      .c-card:first-child
+        margin-bottom: var(--space-50)
+      
+      

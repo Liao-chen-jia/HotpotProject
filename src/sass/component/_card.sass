@@ -1,0 +1,76 @@
+.c-card
+  margin: 0 10vw 10rem
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 40rem
+  &__img-mask
+    position: relative
+    padding-right: 64rem
+    margin-right: 10rem
+    height: 36rem
+    overflow: hidden
+    img
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center center
+      transform: scale(1)
+      transition: transform 1s
+  &__content
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-start
+    border-left: 1px solid #000
+    padding-left: 10rem
+    min-height: 40rem
+  &__date
+    display: flex
+    // justify-content: flex-end
+    align-items: flex-end
+    // margin-bottom: 5rem
+  &__num
+    // padding-top: 1rem
+  &__ordinal-num
+    margin-right: 2rem
+  &__btn
+    margin-left: auto
+    .o-btn
+      width: 0
+      transition: width 1s 0.5s
+      &__text
+        opacity: 0
+        transition: opacity 0.5s 
+  &:hover &
+    &__img-mask
+      img
+        transform: scale(1.2)
+    &__btn
+      .o-btn
+        width: 15rem
+        transition: width 1s 
+        &__text
+          opacity: 1
+          transition: opacity 0.5s 1s
+  +media(xxl)
+    &__img-mask
+      padding-right: 56rem
+      height: 31.5rem
+  +media(xl)
+    &
+      flex-direction: column
+      height: 100%
+      &__img-mask
+        padding: 0 64rem 36rem 0
+        margin-right: 0
+        margin-bottom: 10rem
+      &__content
+        border-top: 1px solid #000
+        border-left: 0      
+        padding-top: 1rem
+        padding-left: 0
+  
