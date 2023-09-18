@@ -156,6 +156,15 @@ span {
   font-weight: 800;
 }
 
+.u-object-fit {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
 .o-burger {
   cursor: pointer;
 }
@@ -455,12 +464,15 @@ span {
   }
 }
 
-.c-product {
-  border: 1px solid #000;
-  width: 30rem;
-}
 .c-product__img-mask {
-  max-width: 30rem;
+  max-width: 40rem;
+}
+.c-product__img {
+  width: 100%;
+  height: 100%;
+}
+.c-product__content {
+  width: 40rem;
 }
 
 .c-footer {
@@ -624,13 +636,23 @@ span {
 }
 
 .l-outsourcing {
-  margin-top: 20rem;
+  margin-top: 35rem;
   position: relative;
+  height: 100%;
+  margin-bottom: 10rem;
+}
+.l-outsourcing__wrap {
+  padding: 0 5vw;
+}
+.l-outsourcing__box {
+  --bs-gutter-x: 3rem;
 }
 .l-outsourcing__title {
   font-size: 30rem;
   font-weight: 900;
   position: absolute;
+  top: -30rem;
+  left: 3rem;
   color: var(--color-secondary40);
 }
 .l-outsourcing__box {
