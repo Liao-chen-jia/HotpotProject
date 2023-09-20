@@ -464,17 +464,20 @@ span {
   }
 }
 
-.c-product__img-mask {
-  max-width: 40rem;
+@media (max-width: 1880px) and (min-width: 1408px) {
+  .c-product {
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 1600px) {
+  .c-product {
+    margin-bottom: 2rem;
+  }
 }
 .c-product__img {
   width: 100%;
   height: 100%;
 }
-.c-product__content {
-  width: 40rem;
-}
-
 .c-footer {
   height: 15rem;
   background-color: var(--color-primary);
@@ -636,16 +639,23 @@ span {
 }
 
 .l-outsourcing {
+  width: 100%;
+  height: 100%;
   margin-top: 35rem;
+}
+.l-outsourcing__block {
   position: relative;
   height: 100%;
   margin-bottom: 10rem;
+}
+.l-outsourcing__block:not(:first-child) {
+  margin-top: 35rem;
 }
 .l-outsourcing__wrap {
   padding: 0 5vw;
 }
 .l-outsourcing__box {
-  --bs-gutter-x: 3rem;
+  --bs-gutter-x: 2.5rem;
 }
 .l-outsourcing__title {
   font-size: 30rem;
@@ -654,6 +664,12 @@ span {
   top: -30rem;
   left: 3rem;
   color: var(--color-secondary40);
+}
+@media (max-width: 767.98px) {
+  .l-outsourcing__title {
+    font-size: 25rem;
+    top: -25rem;
+  }
 }
 .l-outsourcing__box {
   display: -webkit-box;

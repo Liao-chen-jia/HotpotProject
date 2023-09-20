@@ -1,4 +1,8 @@
 =media($point)
+  // 設定outsourcing的圖片大小問題
+  @if ($point == xxxl)
+    @media (max-width: 1880px) and (min-width: 1408px)
+      @content
   @if ($point == xxl)
     @media (max-width: 1600px)
       @content

@@ -1,14 +1,16 @@
 .l-outsourcing
+  +size(100%)
   margin-top: 35rem
-  position: relative
-  height: 100%
-  margin-bottom: 10rem
-  &:last-child
-    
+  &__block
+    position: relative
+    height: 100%
+    margin-bottom: 10rem
+    &:not(:first-child)
+      margin-top: 35rem
   &__wrap
     padding: 0 5vw
   &__box
-    --bs-gutter-x: 3rem
+    --bs-gutter-x: 2.5rem
   &__title
     font-size: 30rem
     font-weight: 900
@@ -16,6 +18,9 @@
     top: -30rem
     left: 3rem
     color: var(--color-secondary40)
+    +media(sm)
+      font-size: 25rem
+      top: -25rem  
   &__box
     display: flex
     justify-content: center
