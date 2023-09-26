@@ -19,8 +19,8 @@
   &__item
     font-size: 2rem
     margin: 0 var(--space-50)
-    &.--img
-      max-width: 10rem
+  &__img-mask
+    +size(10rem)
   &__btn
     border: 2px solid transparent
     color: var(--color-secondary)
@@ -28,7 +28,6 @@
     padding: var(--space-10)
     &:hover 
       font-weight: 800
-
   +media(xl)
     justify-content: space-between
     padding: 0 var(--space-50)
@@ -51,9 +50,8 @@
     &__btn
       opacity: 0
       transition: opacity 0.5s
-    &__item
-      &.--img
-        display: none
+    &__img-mask
+      display: none
     &__burger-ctrl:checked ~ &
       &__list
         max-height: 40rem

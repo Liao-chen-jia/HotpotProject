@@ -1,0 +1,27 @@
+mixin HeaderNavbar
+  nav.c-navbar
+    a.c-navbar__logo-mask(href=`index.html`)
+      img(src=`./img/logo/hotpot_icon.png`, alt=`咾鍋Logo` )
+    input#burgerCtrl.c-navbar__burger-ctrl(type="checkbox" hidden)
+    label.o-burger.c-navbar__burger(for="burgerCtrl")
+      .o-burger__wrap
+        .o-burger__line
+        .o-burger__line
+        .o-burger__line
+    ul.c-navbar__list
+      li.c-navbar__item
+        a.c-navbar__btn(href=`index.html`) 首頁
+      li.c-navbar__item
+        a.c-navbar__btn(href=`news.html`) 最新消息
+      li.c-navbar__item
+        a.c-navbar__btn(href=`service.html`) 服務項目
+      li.c-navbar__item
+        a.c-navbar__img-mask(href=`index.html`)
+          img(src=`./img/logo/hotpot_icon.png`, alt=`咾鍋Logo`)
+          // 想做出點圖片也可以回首頁的感覺
+      li.c-navbar__item
+        a.c-navbar__btn(href=`introduce.html`) 產品介紹
+      li.c-navbar__item
+        a.c-navbar__btn(href=`outsourcing.html`) 外包
+      li.c-navbar__item
+        a.c-navbar__btn(href=`connection.html`) 聯絡我們

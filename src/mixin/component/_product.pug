@@ -1,0 +1,8 @@
+mixin SourcingProject(item)
+  article.col.c-product 
+    .c-product__img-mask
+      img.u-object-fit.c-product__img(src=item.img, alt=item.imgcontent)
+    .c-product__title 
+      h2.u-text-title #{item.title}
+    .c-product__content 
+      p #{item.content}

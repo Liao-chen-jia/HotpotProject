@@ -1,0 +1,13 @@
+mixin NewsCard(item)
+  .c-card
+    .c-card__img-mask 
+      img(src=item.img, alt=item.imgcontent)
+    .c-card__content
+      .c-card__date
+        p.c-card__num.u-text-title.u-ff-en.u-fw-800 #{item.number}
+        p.c-card__ordinal-num.u-text-xl.u-ff-en #{item.ordinalnumber}
+        p.c-card__month.u-text-xl.u-ff-en #{item.month}
+      .c-card__text.u-text-l #{item.content}
+      .c-card__btn
+        a(href="##").o-btn
+          p.o-btn__text.u-text-l 深入了解
