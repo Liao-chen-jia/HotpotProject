@@ -279,8 +279,9 @@ span {
   font-size: 2rem;
   margin: 0 var(--space-50);
 }
-.c-navbar__item.--img {
-  max-width: 10rem;
+.c-navbar__img-mask {
+  width: 10rem;
+  height: 10rem;
 }
 .c-navbar__btn {
   border: 2px solid transparent;
@@ -329,7 +330,7 @@ span {
     -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
   }
-  .c-navbar__item.--img {
+  .c-navbar__img-mask {
     display: none;
   }
   .c-navbar__burger-ctrl:checked ~ .c-navbar__list {
