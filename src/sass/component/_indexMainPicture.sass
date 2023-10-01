@@ -1,0 +1,24 @@
+.c-indexMainPicture
+  &__swiper
+    margin-top: 10rem
+  &__img-mask
+    --img-w-ratio: 4
+    --img-h-ratio: 2
+    padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+  &__btn
+    background-color: #fff
+    padding: 7rem
+    border-radius: 50%
+    color: var(--color-secondary) !important
+    transition: opacity 1.2s
+    &.--prev
+      left: 20rem
+    &.--next
+      right: 20rem
+    //- 到時候還要改顏色
+  &__btn::after
+    content: '' !important
+  
+.swiper-button-disabled
+  // display: none !important
+  opacity: 0 !important

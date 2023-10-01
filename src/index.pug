@@ -3,15 +3,44 @@ html(lang="en")
   head
     include mixin/_webset.pug
     +WebSet
+    link(rel="stylesheet", href="css/swiper-bundle.min.css")
     title 「咾鍋」 風味鍋物 - 滿滿的親切少女心，給您溫柔體貼的用餐體驗
   body
     include mixin/component/_navbar.pug
     include mixin/component/_footer.pug
     header
       +HeaderNavbar
+    main.l-index
+      article.swiper.c-indexMainPicture__swiper
+        .swiper-wrapper
+          .swiper-slide.c-indexMainPicture__slide
+            .c-indexMainPicture__img-mask
+              img.c-indexMainPicture__img.u-object-fit.--abs(src="./img/index/test1.png", alt="測試照片1")
+          .swiper-slide.c-indexMainPicture__slide    
+            .c-indexMainPicture__img-mask
+              img.c-indexMainPicture__img.u-object-fit.--abs(src="./img/index/test2.png", alt="測試照片2")
+      .swiper-button-prev.c-indexMainPicture__btn.--prev.u-text-l 白天
+      .swiper-button-next.c-indexMainPicture__btn.--next.u-text-l 黑夜
     footer.c-footer
-      +NewFooter
-      
+      +NewFooter 
+    script(src="./js/swiper-bundle.min.js") 
+    script.
+      const mySwiper = new Swiper('.c-indexMainPicture__swiper', {
+        //- autoplay: true,
+        effect : 'flip',
+        speed: 1200,
+        //- 不能使用滑鼠滑動swiper
+         noSwiping: true,
+        //- mousewheel: true,
+        flipEffect: {
+          slideShadows : true,
+          limitRotation : true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
     script(src="https://kit.fontawesome.com/c85166bbba.js" crossorigin="anonymous")
     
         

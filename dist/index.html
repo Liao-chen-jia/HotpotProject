@@ -16,6 +16,7 @@
         <link rel="apple-touch-icon" href="./img/logo/hotpot_icon.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <title>「咾鍋」 風味鍋物 - 滿滿的親切少女心，給您溫柔體貼的用餐體驗</title>
   </head>
   <body>
@@ -41,6 +42,20 @@
             </ul>
           </nav>
     </header>
+    <main class="l-index">
+      <article class="swiper c-indexMainPicture__swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide c-indexMainPicture__slide">
+            <div class="c-indexMainPicture__img-mask"><img class="c-indexMainPicture__img u-object-fit --abs" src="./img/index/test1.png" alt="測試照片1"></div>
+          </div>
+          <div class="swiper-slide c-indexMainPicture__slide">   
+            <div class="c-indexMainPicture__img-mask"><img class="c-indexMainPicture__img u-object-fit --abs" src="./img/index/test2.png" alt="測試照片2"></div>
+          </div>
+        </div>
+      </article>
+      <div class="swiper-button-prev c-indexMainPicture__btn --prev u-text-l">白天</div>
+      <div class="swiper-button-next c-indexMainPicture__btn --next u-text-l">黑夜</div>
+    </main>
     <footer class="c-footer">
           <div class="c-footer__img-mask"><img src="./img/footer/solgan.png" alt="做自己的女王"></div>
           <div class="c-footer__icon-wrap"> <a href="https://www.facebook.com/pc123499" target="_blank"> <i class="fa-brands fa-facebook c-footer__icon"></i></a><a href="https://www.instagram.com/laoguo20170409/" target="_blank"> <i class="fa-brands fa-instagram c-footer__icon"></i></a></div>
@@ -49,6 +64,25 @@
             <div class="c-footer__phone"> <i class="fa-solid fa-phone"></i><span>0966-566661</span></div>
           </div>
     </footer>
+    <script src="./js/swiper-bundle.min.js"> </script>
+    <script>
+      const mySwiper = new Swiper('.c-indexMainPicture__swiper', {
+        //- autoplay: true,
+        effect : 'flip',
+        speed: 1200,
+        //- 不能使用滑鼠滑動swiper
+         noSwiping: true,
+        //- mousewheel: true,
+        flipEffect: {
+          slideShadows : true,
+          limitRotation : true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      })
+    </script>
     <script src="https://kit.fontawesome.com/c85166bbba.js" crossorigin="anonymous"></script>
   </body>
 </html>
