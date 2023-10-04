@@ -1,10 +1,22 @@
 .c-indexMainPicture
   &__swiper
     margin-top: 10rem
+    overflow: hidden !important
+    // height: 100% !important
+  &__slide 
+    // width: 216rem !important
   &__img-mask
-    --img-w-ratio: 4
-    --img-h-ratio: 2
+    --img-w-ratio: 2
+    --img-h-ratio: 1
     padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+    +media(xxxl)
+      --img-w-ratio: 1
+      --img-h-ratio: 1
+      padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+    +media(xxl)
+      --img-w-ratio: 2
+      --img-h-ratio: 3
+      padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
   &__btn
     background-color: #fff
     padding: 7rem
@@ -13,8 +25,18 @@
     transition: opacity 1.2s
     &.--prev
       left: 20rem
+      transition: transform 0.5s
+      +media(xxl)
+        left: 2rem
+      &:hover
+        transform: translateY(-2rem)
     &.--next
       right: 20rem
+      transition: transform 0.5s
+      +media(xxl)
+        right: 2rem
+      &:hover
+        transform: translateY(-2rem)
     //- 到時候還要改顏色
   &__btn::after
     content: '' !important

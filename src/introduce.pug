@@ -3,13 +3,137 @@ html(lang="en")
   head
     include mixin/_webset.pug
     +WebSet
+    link(rel="stylesheet", href="css/swiper-bundle.min.css")
     title 「咾鍋」 風味鍋物 - 滿滿的親切少女心，給您溫柔體貼的用餐體驗
   body 
     include mixin/component/_navbar.pug
     include mixin/component/_footer.pug
     header
       +HeaderNavbar
-    main.l-introduce 
+    main.l-introduce
+      .container
+        article.swiper.c-introduceproduct__swiper
+          .c-introduceproduct__title.u-ff-ch 肉品
+          .swiper-wrapper
+            mixin ProductIntroduce(item) 
+              .swiper-slide.c-introduceproduct__slide
+                .c-introduceproduct__img-mask
+                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
+                .c-introduceproduct__text.u-text-l #{item.content}
+            -
+              const ProductList = [
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              ]
+            - for(let i = 0; i < ProductList.length; i++)
+              +ProductIntroduce(ProductList[i])
+
+      .container
+        article.swiper.c-introduceproduct__swiper
+          .c-introduceproduct__title.u-ff-ch 肉品
+          .swiper-wrapper
+            mixin ProductIntroduce(item) 
+              .swiper-slide.c-introduceproduct__slide
+                .c-introduceproduct__img-mask
+                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
+                .c-introduceproduct__text.u-text-l #{item.content}
+            -
+              const DessertList = [
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              ]
+            - for(let i = 0; i < DessertList.length; i++)
+              +ProductIntroduce(DessertList[i])
+      .container
+        article.swiper.c-introduceproduct__swiper
+          .c-introduceproduct__title.u-ff-ch 肉品
+          .swiper-wrapper
+            mixin ProductIntroduce(item) 
+              .swiper-slide.c-introduceproduct__slide
+                .c-introduceproduct__img-mask
+                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
+                .c-introduceproduct__text.u-text-l #{item.content}
+            -
+              const WaterList = [
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              ]
+            - for(let i = 0; i < WaterList.length; i++)
+              +ProductIntroduce(WaterList[i])
+              
     footer.c-footer
       +NewFooter
+    script(src="./js/swiper-bundle.min.js") 
+    script.
+      const mySwiper = new Swiper('.c-introduceproduct__swiper',{
+        //- autoplay: true,
+        slidesPerView: 4,
+        spaceBetween: 30,
+      })
     script(src="https://kit.fontawesome.com/c85166bbba.js" crossorigin="anonymous")
