@@ -4,8 +4,9 @@
   +media(xxl)
     margin-bottom: 2rem
   &__img-mask
-    // +media(xxxl)
-    //   max-width: 50rem
+    --img-w-ratio: 5
+    --img-h-ratio: 4
+    padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
   &__img
     +size(100%)
   &__content

@@ -23,6 +23,7 @@ html(lang="en")
               img.c-indexMainPicture__img.u-object-fit.--abs(src="./img/index/test2.png", alt="測試照片2")
       .swiper-button-prev.c-indexMainPicture__btn.--prev.u-text-l 白天
       .swiper-button-next.c-indexMainPicture__btn.--next.u-text-l 黑夜
+
     section.l-news
       #news.l-news__title 最新消息
       -
@@ -70,15 +71,45 @@ html(lang="en")
           .col-6.c-burncard__wrap
             article.swiper.c-burncard__swiper
               .swiper-wrapper
-                .swiper-slide.c-burncard__slide
-                  .c-burncard__img-mask
-                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burn_service.jpg", alt="炙燒服務")
-                .swiper-slide.c-burncard__slide
-                  .c-burncard__img-mask
-                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burnimg1.jpg", alt="炙燒過程_1")
-                .swiper-slide.c-burncard__slide
-                  .c-burncard__img-mask
-                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burnimg2.jpg", alt="炙燒過程_2")
+                mixin burnCardSlide(item)
+                  .swiper-slide.c-burncard__slide
+                    .c-burncard__img-mask
+                      img.c-burncard__img.u-object-fit.--abs(src=item.img, alt=item.imgcontent)
+                -
+                  const burnCardSlideList = [
+                  {
+                    img: './img/service/burn_service.jpg',
+                    imgcontent: '炙燒服務'
+                  },
+                  {
+                    img: './img/service/burnimg1.jpg',
+                    imgcontent: '炙燒過程_1'
+                  },
+                  {
+                    img: './img/service/burnimg2.jpg',
+                    imgcontent: '炙燒過程_2'
+                  },
+                  {
+                    img: './img/service/burnimg3.jpg',
+                    imgcontent: '炙燒過程_3'
+                  },
+                  {
+                    img: './img/service/burnimg4.jpg',
+                    imgcontent: '炙燒過程_4'
+                  },
+                  {
+                    img: './img/service/burnimg5.jpg',
+                    imgcontent: '炙燒過程_5'
+                  },
+                  {
+                    img: './img/service/burn_product.jpg',
+                    imgcontent: '炙燒產品'
+                  }]    
+
+                - for(let i = 0; i < burnCardSlideList.length; i++)
+                  +burnCardSlide(burnCardSlideList[i])
+                
+
           .col-6.c-burncard__wrap
             .c-burncard__text 炙燒專人服務以
               span.c-burncard__span 客製化
@@ -90,6 +121,42 @@ html(lang="en")
 
     section.l-introduce
       #introduce.l-introduce__title 產品介紹
+      .container
+        article.swiper.c-introduceproduct__swiper
+          .c-introduceproduct__title.u-ff-ch 湯鍋
+          .swiper-wrapper
+            mixin ProductIntroduce(item)
+              .swiper-slide.c-introduceproduct__slide
+                .c-introduceproduct__img-mask
+                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
+                .c-introduceproduct__text.u-text-l #{item.content}
+            -
+              const SoupList = [
+              {
+                img: './img/introduce/soup/ChiliChickenSoup.jpg',
+                content: '剝皮辣椒雞'       
+              },
+              {
+                img: './img/introduce/soup/GarlicChickenPot.jpg',
+                content: '蒜頭雞燒鍋'
+              },
+              {
+                img: './img/introduce/soup/MarshmallowPot.jpg',
+                content: '棉花糖鍋物'       
+              },
+              {
+                img: './img/introduce/soup/SpicyHotPot.jpg',
+                content: '咾湯麻辣鍋'
+              },
+              {
+                img: './img/introduce/soup/StylignMilkPot.jpg',
+                content: '造型牛奶鍋'       
+              },
+              
+              ]
+            - for(let i = 0; i < SoupList.length; i++)
+              +ProductIntroduce(SoupList[i])
+
       .container
         article.swiper.c-introduceproduct__swiper
           .c-introduceproduct__title.u-ff-ch 肉品
@@ -110,20 +177,24 @@ html(lang="en")
                 content: '澳洲小羔羊'
               },
               {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
+                img: './img/introduce/meat/CowPig.jpg',
+                content: '牛豬雙拼'       
               },
               {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
+                img: './img/introduce/meat/lberianBlackPig.jpg',
+                content: '依比利黑豬'
               },
               {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
+                img: './img/introduce/meat/PrimeFrostCow.jpg',
+                content: 'Prime霜降牛'       
               },
               {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
+                img: './img/introduce/meat/PrimeTendonBeef.jpg',
+                content: 'Prime板腱牛'
+              },
+              {
+                img: './img/introduce/meat/wingPlateCow.jpg',
+                content: 'Prime翼板牛'
               },
               ]
             - for(let i = 0; i < ProductList.length; i++)
@@ -131,7 +202,7 @@ html(lang="en")
 
       .container
         article.swiper.c-introduceproduct__swiper
-          .c-introduceproduct__title.u-ff-ch 肉品
+          .c-introduceproduct__title.u-ff-ch 海鮮
           .swiper-wrapper
             mixin ProductIntroduce(item) 
               .swiper-slide.c-introduceproduct__slide
@@ -139,141 +210,62 @@ html(lang="en")
                   img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
                 .c-introduceproduct__text.u-text-l #{item.content}
             -
-              const DessertList = [
+              const SeafoodList = [
               {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
+                img: './img/introduce/seafood/ArrogantSeafoodPlatter.jpg',
+                content: '囂張海鮮拼盤'       
               },
               {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
+                img: './img/introduce/seafood/HappyLittleSeafood.jpg',
+                content: '幸福小海鮮'
               },
               {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
+                img: './img/introduce/seafood/SumHuiSeafoodPlate.jpg',
+                content: '總匯海鮮盤'       
               },
               {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
-              },
-              {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
-              },
-              {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
-              },
+                img: './img/introduce/seafood/SuperGiantSeafoodPlate.jpg',
+                content: '超巨海鮮拼盤'
+              }
               ]
-            - for(let i = 0; i < DessertList.length; i++)
-              +ProductIntroduce(DessertList[i])
+            - for(let i = 0; i < SeafoodList.length; i++)
+              +ProductIntroduce(SeafoodList[i])
 
-      .container
-        article.swiper.c-introduceproduct__swiper
-          .c-introduceproduct__title.u-ff-ch 肉品
-          .swiper-wrapper
-            mixin ProductIntroduce(item) 
-              .swiper-slide.c-introduceproduct__slide
-                .c-introduceproduct__img-mask
-                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
-                .c-introduceproduct__text.u-text-l #{item.content}
-            -
-              const WaterList = [
-              {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
-              },
-              {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
-              },
-              {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
-              },
-              {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
-              },
-              {
-                img: './img/introduce/meat/beefBelly.jpg',
-                content: 'Choice牛腹肉'       
-              },
-              {
-                img: './img/introduce/meat/australianLamb.jpg',
-                content: '澳洲小羔羊'
-              },
-              ]
-            - for(let i = 0; i < WaterList.length; i++)
-              +ProductIntroduce(WaterList[i])
     section.l-outsourcing
       h1#outsourcing.l-outsourcing__title 周邊
       .l-outsourcing__block
         .container-fluid.l-outsourcing__wrap
           .row.row-cols-xxl-4.row-cols-xl-2.row-cols-lg-2.row-cols-md-2.row-cols-sm-1.row-cols-1.l-outsourcing__box
             -
-              const ProductContentDog = [
+              const ProductContent = [
                 {
-                  img:'./img/outsourcing/test1.png',
-                  imgcontent: '狗狗.png',
-                  title: '我是狗狗',
-                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                  img:'./img/outsourcing/pickle.jpg',
+                  imgcontent: '手作泡菜',
+                  title: '咾鍋手作黃金泡菜',
+                  content: '本店泡菜選用特級山東大白菜，佐以新鮮蔬果調製而成，不含防腐劑，不添加化學物質，請使用乾淨餐具夾取，開罐後儘快享用完畢。直接享用外，也可以做火鍋鍋底，炒泡菜肉片，讓媽媽輕輕鬆鬆快速上菜，上班族也可以準備一罐在公司搭配平庸無奇的便當，給乏味的上班日帶來些小確幸。'
                 },
                 {
-                  img:'./img/outsourcing/test1.png',
-                  imgcontent: '狗狗.png',
-                  title: '我是狗狗',
-                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                  img:'./img/outsourcing/pepperSalt.jpg',
+                  imgcontent: '咾鍋特製胡椒鹽',
+                  title: '咾鍋特製胡椒鹽',
+                  content: '專為美食愛好者設計，我們特製的胡椒鹽結合了獨特的配方，為您的菜餚帶來難以置信的風味體驗。不僅鹹香，還散發出細膩的中藥香氣，讓我們的特製胡椒鹽成為您廚房必備的秘密武器，為您的料理提升無限魅力。'
                 },
                 {
-                  img:'./img/outsourcing/test1.png',
-                  imgcontent: '狗狗.png',
-                  title: '我是狗狗',
-                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                  img:'./img/outsourcing/blackSesameOil.jpg',
+                  imgcontent: '黑麻油',
+                  title: '貴夫人純正黑麻油',
+                  content: '採用100%純緬甸黑芝麻遵循古法，冷壓手工製造，經高科技過濾沉澱所製黑麻油，絕無參雜，香味獨具，是食補烹飪之上等好油，亦是烹調食物之最佳選擇，對於產後或病後之補身極大幫助。適用烹飪、薑母鴨、燒酒雞、羊肉爐、油飯、湯頭...等任何菜餚。'
                 },
                 {
-                  img:'./img/outsourcing/test1.png',
-                  imgcontent: '狗狗.png',
-                  title: '我是狗狗',
-                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                  img:'./img/outsourcing/seaweed.jpg',
+                  imgcontent: '岩烤海苔',
+                  title: '厚切岩烤海苔',
+                  content: '揀選特級海苔，佐飯、零食都適合。擁有極致酥脆的口感，岩烤過後的風味更勝傳統的薄片海苔，厚切的版本嚐起來也更具有層次感，焦香四溢、清爽自然，讓您吃到海苔最原始的絕佳風味。'
                 }
               ]
-            - for(let i = 0; i < ProductContentDog.length; i++)
-              +SourcingProject(ProductContentDog[i])
-      section.l-outsourcing__block
-        //- h1.l-outsourcing__title 貓咪
-        .container-fluid.l-outsourcing__wrap
-          .row.row-cols-xxl-4.row-cols-xl-2.row-cols-lg-2.row-cols-md-2.row-cols-sm-1.row-cols-1.l-outsourcing__box
-            -
-              const ProductContentCat = [
-                {
-                  img:'./img/outsourcing/test2.png',
-                  imgcontent: '貓咪.png',
-                  title: '我是貓咪',
-                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
-                },
-                {
-                  img:'./img/outsourcing/test2.png',
-                  imgcontent: '貓咪.png',
-                  title: '我是貓咪',
-                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
-                },
-                {
-                  img:'./img/outsourcing/test2.png',
-                  imgcontent: '貓咪.png',
-                  title: '我是貓咪',
-                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
-                },
-                {
-                  img:'./img/outsourcing/test2.png',
-                  imgcontent: '貓咪.png',
-                  title: '我是貓咪',
-                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
-                }
-              ]
-            - for(let i = 0; i < ProductContentCat.length; i++)
-              +SourcingProject(ProductContentCat[i])
-
+            - for(let i = 0; i < ProductContent.length; i++)
+              +SourcingProject(ProductContent[i])
+      
     footer.c-footer
       +NewFooter
 
