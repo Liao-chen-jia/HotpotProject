@@ -3,6 +3,7 @@ html(lang="en")
   head
     include mixin/_webset.pug
     +WebSet
+    //- 引入swiper
     link(rel="stylesheet", href="css/swiper-bundle.min.css")
     title 「咾鍋」 風味鍋物 - 滿滿的親切少女心，給您溫柔體貼的用餐體驗
   body 
@@ -129,6 +130,7 @@ html(lang="en")
               
     footer.c-footer
       +NewFooter
+    //- 引入swiper
     script(src="./js/swiper-bundle.min.js") 
     script.
       const mySwiper = new Swiper('.c-introduceproduct__swiper',{

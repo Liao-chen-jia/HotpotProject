@@ -1,0 +1,16 @@
+.c-burncard
+  &__swiper
+  &__img-mask
+    --img-w-ratio: 5
+    --img-h-ratio: 4
+    padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+    // transform: skew(315deg)
+    // transform-origin: top left
+    border-radius: 20rem 0 20rem 0
+    overflow: hidden
+  &__img
+    transform: scale(1)
+    // opacity: 0
+    transition: 0.5s
+    &:hover
+      transform: scale(1.2)

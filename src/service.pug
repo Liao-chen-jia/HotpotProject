@@ -3,6 +3,8 @@ html(lang="en")
   head
     include mixin/_webset.pug
     +WebSet
+    //- 引入swiper
+    link(rel="stylesheet", href="css/swiper-bundle.min.css")
     title 「咾鍋」 風味鍋物 - 滿滿的親切少女心，給您溫柔體貼的用餐體驗
     
   body 
@@ -10,7 +12,34 @@ html(lang="en")
     include mixin/component/_footer.pug
     header
       +HeaderNavbar
-      scan 我是服務項目
-    footer.c-footer
+    main.l-service
+      .container-fluid
+        .row
+          .col-6
+            article.swiper.c-burncard__swiper
+              .swiper-wrapper
+                .swiper-slide.c-burncard__slide
+                  .c-burncard__img-mask
+                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burn_service.jpg", alt="炙燒服務")
+                .swiper-slide.c-burncard__slide
+                  .c-burncard__img-mask
+                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burnimg1.jpg", alt="炙燒過程_1")
+                .swiper-slide.c-burncard__slide
+                  .c-burncard__img-mask
+                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burnimg2.jpg", alt="炙燒過程_2")
+          .col-6
+            .c-burncard__text 炙燒專人服務以
+              span 客製化
+              | 為核心。客戶可以根據自己的
+              span 喜好
+              | 和
+              span 飲食
+              | 限制，選擇所需的食材和調味品，並與專業廚師討論喜歡的烹飪方式。
       +NewFooter
+    //- 引入swiper
+    script(src="./js/swiper-bundle.min.js")
+    script.
+      const mySwiper = new Swiper('.c-burncard__swiper',{
+        //- autoplay: true,
+      })
     script(src="https://kit.fontawesome.com/c85166bbba.js" crossorigin="anonymous")
