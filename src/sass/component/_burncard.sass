@@ -1,16 +1,52 @@
 .c-burncard
-  &__swiper
+  // margin-top: 10rem 
   &__img-mask
     --img-w-ratio: 5
     --img-h-ratio: 4
     padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
     // transform: skew(315deg)
     // transform-origin: top left
-    border-radius: 20rem 0 20rem 0
+    border-radius: 20% 0 20% 0
     overflow: hidden
+  &__wrap:last-child
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0 var(--space-40)
   &__img
+    // 之後想加進去的時候從透明度從0變1
     transform: scale(1)
-    // opacity: 0
     transition: 0.5s
     &:hover
       transform: scale(1.2)
+  &__text
+    font-size: 3rem
+    +media(md)
+      font-size: 2rem
+    +media(xs)
+      font-size: 1.5rem
+  &__span
+    display: inline-block !important
+    font-size: 4rem
+    font-weight: 900
+    color: var(--color-success)
+    &:nth-child(1)
+      animation: shining 0.8s linear infinite
+    &:nth-child(2)
+      animation: shining 0.8s linear infinite
+    &:nth-child(3)
+      animation: shining 0.8s linear infinite
+    +media(md)
+      font-size: 3rem
+    +media(xs)
+      font-size: 2rem
+      
+    
+
+  @keyframes shining
+    0%
+      filter: brightness(1)
+    50%
+      filter: brightness(0.9)
+    100%
+      filter: brightness(1)

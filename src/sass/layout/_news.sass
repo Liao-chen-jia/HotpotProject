@@ -1,7 +1,36 @@
 .l-news
-  //挪出新聞會卡navbar的空間
-  margin-top: 20rem
   width: 100%
+  margin-top: 35rem
+  +media(xl)
+    margin-top: 25rem
+  +media(md)
+    margin-top: 20rem
+  +media(sm)
+    margin-top: 15rem
+  +media(xs)
+    margin-top: 10rem
+  &__title
+    font-size: 30rem
+    font-weight: 900
+    position: absolute
+    top: -30rem
+    left: 0
+    color: var(--color-secondary40)
+    +media(xl)
+      font-size: 25rem
+      top: -25rem  
+    +media(md)
+      font-size: 20rem
+      top: -20rem
+    +media(sm)
+      font-size: 15rem
+      top: -15rem
+    +media(xs)
+      font-size: 10rem
+      top: -10rem
+      
+      
+    
 
 
 

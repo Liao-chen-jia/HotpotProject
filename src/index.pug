@@ -8,6 +8,8 @@ html(lang="en")
   body
     include mixin/component/_navbar.pug
     include mixin/component/_footer.pug
+    include mixin/component/_card.pug
+    include mixin/component/_product.pug
     header
       +HeaderNavbar
     main.l-index
@@ -21,9 +23,263 @@ html(lang="en")
               img.c-indexMainPicture__img.u-object-fit.--abs(src="./img/index/test2.png", alt="測試照片2")
       .swiper-button-prev.c-indexMainPicture__btn.--prev.u-text-l 白天
       .swiper-button-next.c-indexMainPicture__btn.--next.u-text-l 黑夜
+    section.l-news
+      #news.l-news__title 最新消息
+      -
+        const NewsCardContent = [
+          {
+            img: './img/news/news2.jpg',
+            imgcontent: '起司造型牛奶鍋',
+            number: '1',
+            ordinalnumber: 'st',
+            month: 'Sep',
+            content: '美食永遠不缺乏，只是缺乏發現營業時間17:30~02:00。（02:00為最後點餐時間）咾鍋位置：台中市南屯區惠文路258號。咾鍋訂位電話【📞】：0966 566 661'
+          },
+          {
+            img: './img/news/news3.jpg',
+            imgcontent: '花叢中的高跟鞋',
+            number: '6',
+            ordinalnumber: 'th',
+            month: 'Aug',
+            content: '台中鍋烤節還在如火如荼的進行中，投完票留過言的鍋友們趕緊來預備過情人節囉!今年，咾鍋跟台中知名高級花店 "晴天花藝"共同推出了四吋手作蛋糕 - 花叢中的高跟鞋，因為是手作，所以只能限量，重點是"免費"。想美美的慶祝今年七夕情人節的鍋友們手腳快一點，動動你的小手就有機會喔。'
+          },
+          {
+            img: './img/news/news1.jpg',
+            imgcontent: '台中鍋烤節',
+            number: '20',
+            ordinalnumber: 'th',
+            month: 'Jun',
+            content: '台中鍋烤節你參加了嗎?嘿嘿，身為粉紅教主的咾鍋也參與了這次鍋烤節的商家評選，而且，還加碼讓大家抽喜上加喜的好禮喔。'
+          },
+          {
+            img: './img/news/news4.jpg',
+            imgcontent: '',
+            number: '14',
+            ordinalnumber: 'th',
+            month: 'Jun',
+            content: '被「甜點」耽誤的火鍋店，老闆再不斷精進火鍋湯頭以及嚴選新鮮食材之餘，也更加提升了甜品的美味。全是為了帶給大家更完美的用餐體驗～'
+          },
+        ]
+      - for(let i = 0;i < NewsCardContent.length; i++)
+        +NewsCard(NewsCardContent[i])
+
+    section.l-service
+      #service.l-service__title 服務項目
+      .container-fluid.c-burncard
+        .row
+          .col-6.c-burncard__wrap
+            article.swiper.c-burncard__swiper
+              .swiper-wrapper
+                .swiper-slide.c-burncard__slide
+                  .c-burncard__img-mask
+                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burn_service.jpg", alt="炙燒服務")
+                .swiper-slide.c-burncard__slide
+                  .c-burncard__img-mask
+                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burnimg1.jpg", alt="炙燒過程_1")
+                .swiper-slide.c-burncard__slide
+                  .c-burncard__img-mask
+                    img.c-burncard__img.u-object-fit.--abs(src="./img/service/burnimg2.jpg", alt="炙燒過程_2")
+          .col-6.c-burncard__wrap
+            .c-burncard__text 炙燒專人服務以
+              span.c-burncard__span 客製化
+              | 為核心。客戶可以根據自己的
+              span.c-burncard__span 喜好
+              | 和
+              span.c-burncard__span 飲食
+              | 限制，選擇所需的食材和調味品，並與專業廚師討論喜歡的烹飪方式。
+
+    section.l-introduce
+      #introduce.l-introduce__title 產品介紹
+      .container
+        article.swiper.c-introduceproduct__swiper
+          .c-introduceproduct__title.u-ff-ch 肉品
+          .swiper-wrapper
+            mixin ProductIntroduce(item) 
+              .swiper-slide.c-introduceproduct__slide
+                .c-introduceproduct__img-mask
+                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
+                .c-introduceproduct__text.u-text-l #{item.content}
+            -
+              const ProductList = [
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              ]
+            - for(let i = 0; i < ProductList.length; i++)
+              +ProductIntroduce(ProductList[i])
+
+      .container
+        article.swiper.c-introduceproduct__swiper
+          .c-introduceproduct__title.u-ff-ch 肉品
+          .swiper-wrapper
+            mixin ProductIntroduce(item) 
+              .swiper-slide.c-introduceproduct__slide
+                .c-introduceproduct__img-mask
+                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
+                .c-introduceproduct__text.u-text-l #{item.content}
+            -
+              const DessertList = [
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              ]
+            - for(let i = 0; i < DessertList.length; i++)
+              +ProductIntroduce(DessertList[i])
+
+      .container
+        article.swiper.c-introduceproduct__swiper
+          .c-introduceproduct__title.u-ff-ch 肉品
+          .swiper-wrapper
+            mixin ProductIntroduce(item) 
+              .swiper-slide.c-introduceproduct__slide
+                .c-introduceproduct__img-mask
+                  img.c-introduceproduct__img.u-object-fit.--abs(src=item.img, alt=item.content)
+                .c-introduceproduct__text.u-text-l #{item.content}
+            -
+              const WaterList = [
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              {
+                img: './img/introduce/meat/beefBelly.jpg',
+                content: 'Choice牛腹肉'       
+              },
+              {
+                img: './img/introduce/meat/australianLamb.jpg',
+                content: '澳洲小羔羊'
+              },
+              ]
+            - for(let i = 0; i < WaterList.length; i++)
+              +ProductIntroduce(WaterList[i])
+    section.l-outsourcing
+      h1#outsourcing.l-outsourcing__title 周邊
+      .l-outsourcing__block
+        .container-fluid.l-outsourcing__wrap
+          .row.row-cols-xxl-4.row-cols-xl-2.row-cols-lg-2.row-cols-md-2.row-cols-sm-1.row-cols-1.l-outsourcing__box
+            -
+              const ProductContentDog = [
+                {
+                  img:'./img/outsourcing/test1.png',
+                  imgcontent: '狗狗.png',
+                  title: '我是狗狗',
+                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                },
+                {
+                  img:'./img/outsourcing/test1.png',
+                  imgcontent: '狗狗.png',
+                  title: '我是狗狗',
+                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                },
+                {
+                  img:'./img/outsourcing/test1.png',
+                  imgcontent: '狗狗.png',
+                  title: '我是狗狗',
+                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                },
+                {
+                  img:'./img/outsourcing/test1.png',
+                  imgcontent: '狗狗.png',
+                  title: '我是狗狗',
+                  content: '我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文'
+                }
+              ]
+            - for(let i = 0; i < ProductContentDog.length; i++)
+              +SourcingProject(ProductContentDog[i])
+      section.l-outsourcing__block
+        //- h1.l-outsourcing__title 貓咪
+        .container-fluid.l-outsourcing__wrap
+          .row.row-cols-xxl-4.row-cols-xl-2.row-cols-lg-2.row-cols-md-2.row-cols-sm-1.row-cols-1.l-outsourcing__box
+            -
+              const ProductContentCat = [
+                {
+                  img:'./img/outsourcing/test2.png',
+                  imgcontent: '貓咪.png',
+                  title: '我是貓咪',
+                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
+                },
+                {
+                  img:'./img/outsourcing/test2.png',
+                  imgcontent: '貓咪.png',
+                  title: '我是貓咪',
+                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
+                },
+                {
+                  img:'./img/outsourcing/test2.png',
+                  imgcontent: '貓咪.png',
+                  title: '我是貓咪',
+                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
+                },
+                {
+                  img:'./img/outsourcing/test2.png',
+                  imgcontent: '貓咪.png',
+                  title: '我是貓咪',
+                  content: '我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛我很可愛'
+                }
+              ]
+            - for(let i = 0; i < ProductContentCat.length; i++)
+              +SourcingProject(ProductContentCat[i])
+
     footer.c-footer
-      +NewFooter 
-    script(src="./js/swiper-bundle.min.js") 
+      +NewFooter
+
+    //- 引入swiper
+    script(src="./js/swiper-bundle.min.js")
+    script(dsrc="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous")       
     script.
       const mySwiper = new Swiper('.c-indexMainPicture__swiper', {
         //- autoplay: true,
@@ -44,6 +300,32 @@ html(lang="en")
         scrollbar: {
           el: '.swiper-scrollbar',
         },
+      })
+    script.
+      const myBurnSwiper = new Swiper('.c-burncard__swiper',{
+        autoplay: true,
+        speed: 1200,
+      })
+    script.
+      const myServiceSwiper = new Swiper('.c-servicecard__swiper',{
+        autoplay: true,
+        speed: 1200,
+      })
+    script.
+      const myIntroduceSwiper = new Swiper('.c-introduceproduct__swiper',{
+        //- autoplay: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        breakpoints: { 
+          520: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1200: {
+            slidesPerView: 4,
+            spaceBetween: 30
+          }
+        }
       })
     script(src="https://kit.fontawesome.com/c85166bbba.js" crossorigin="anonymous")
     
