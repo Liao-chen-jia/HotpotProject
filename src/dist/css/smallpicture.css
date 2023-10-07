@@ -1,0 +1,5 @@
+.o-smallpicture__img-mask {
+  --img-w-ratio: 1;
+  --img-h-ratio: 1;
+  padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio));
+}

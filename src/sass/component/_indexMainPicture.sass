@@ -17,13 +17,15 @@
       --img-w-ratio: 2
       --img-h-ratio: 3
       padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+    
   &__btn
-    background-color: #fff
     padding: 7rem
     border-radius: 50%
-    color: var(--color-secondary) !important
-    transition: opacity 1.2s
+    // opacity: 0
+    // transition-duration: 1s
     &.--prev
+      color: var(--color-secondary) !important
+      background-color: var(--color-white80)  
       left: 20rem
       transition: transform 0.5s
       +media(xxl)
@@ -31,16 +33,48 @@
       &:hover
         transform: translateY(-2rem)
     &.--next
+      color: var(--color-white) !important
+      background-color: var(--color-gray60)
       right: 20rem
       transition: transform 0.5s
       +media(xxl)
         right: 2rem
       &:hover
         transform: translateY(-2rem)
+
+    
+
     //- 到時候還要改顏色
   &__btn::after
     content: '' !important
-  
-.swiper-button-disabled
-  // display: none !important
-  opacity: 0 !important
+  &__text
+    position: absolute
+    top: 65%
+    transform: translateY(-50%)
+    font-size: 2rem
+    border-radius: 4rem
+    padding: var(--space-40)
+    opacity: 0
+    transition-duration: 1s 
+    transition-delay: 1s
+    +media(sm)
+      font-size: 1.5rem
+      padding: var(--space-20)
+    &.--sun
+      right: 50%
+      margin-left: var(--space-60)
+      background-color:  var(--color-gray60)
+      color: var(--color-white)
+    &.--night
+      left: 50%
+      margin-right: var(--space-60)
+      background-color: var(--color-white80)
+      color: var(--color-secondary)
+    &.is-active
+      opacity: 1
+      top: 60%
+
+.my-button-disabled
+  opacity: 0
+  cursor: auto
+  pointer-events: none

@@ -15,7 +15,8 @@ html
 
 body
   margin: 0
-  background-color: var(--color-primary60)
+  // background-color: rgba(255, 255, 255, 0.5)
+  
   font-family: var(--ff-ch)
   font-size: 1.6rem
   font-weight: 400
@@ -28,6 +29,21 @@ body
   //- 隱藏橫向的滾動條，來讓產品介紹，來讓產品介紹頁面不會出現滾動條
   overflow-x: hidden
   // overflow-y: hidden
+  &::before
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    opacity: 0.4
+    background-image: url('../img/index/index_pict.jpg')
+    background-repeat: no-repeat
+    background-position: 40% 50%
+    background-size: cover
+    background-attachment: fixed
+
 
 /* ----------------------------------- */
 /* ------ Reset ------ */
